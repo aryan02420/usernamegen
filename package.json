@@ -1,0 +1,29 @@
+{
+  "name": "@aryan02420/usernamegen",
+  "version": "0.0.0",
+  "description": "generates a random username",
+  "main": "index.js",
+  "scripts": {},
+  "bin": {
+    "ung": "bin/ung.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryan02420/usernamegen.git"
+  },
+  "keywords": [
+    "username",
+    "random",
+    "generator"
+  ],
+  "author": "aryan02420 <aryan02420@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "seedrandom": "^3.0.5"
+  },
+  "bugs": {
+    "url": "https://github.com/aryan02420/usernamegen/issues"
+  },
+  "homepage": "https://github.com/aryan02420/usernamegen",
+  "devDependencies": {}
+}
