@@ -10,35 +10,42 @@
     const ung = require('@aryan02420/usernamegen')
 
     // random usernames
-    console.log(ung.generateUsername())    // slightingvoltaic4
-    console.log(ung.generateUsername())    // amazedspirogyra43566
-    console.log(ung.generateUsername())    // casuisticaljam203
+    console.log(ung.generateUsername())             // slightingvoltaic4
+    console.log(ung.generateUsername())             // amazedspirogyra43566
+    console.log(ung.generateUsername())             // casuisticaljam203
     console.log(ung.generateUsername(undefined))    // sevenfoldfast6
     console.log(ung.generateUsername(undefined))    // sunnyanoxia68
     console.log(ung.generateUsername(undefined))    // ribbedgraphite9184
 ```
+
 ```js
     // from seed
-    console.log(ung.generateUsername('hello'))    // mortalidolization749
-    console.log(ung.generateUsername('hello'))    // mortalidolization749
-    console.log(ung.generateUsername('world!'))   // sunburnedpasigraphy4
+    console.log(ung.generateUsername('hello'))      // mortalidolization749
+    console.log(ung.generateUsername('hello'))      // mortalidolization749
+    console.log(ung.generateUsername('wOrld!'))     // sunburnedpasigraphy4
 ```
+
 ```js
     // formatting
 
-    console.log(ung.generateUsername('world!', (fn, ln, n) => {
-        return `${fn.replace(/^\w/, (c) => {
-            return c.toUpperCase()
-        })}${ln.replace(/^\w/, (c) => {
-            return c.toUpperCase()
-        })}-${n}`
-    }))                                           // SunburnedPasigraphy-4
+    console.log(ung.generateUsername('wOrld!', (fn, ln, n) => {
+        return `${fn}${ln}_${n}`.toUpperCase()
+    }))                                                         // SUNBURNEDPASIGRAPHY_4
 
-    hackertype = (fn, ln, n) => {
-      const str = `${fn}-${ln}${n}`
-      return h4ck3r7yp3(str)
+    uppercase = (fn, ln, n) => {
+      return `${fn}${ln}_${n}`.toUpperCase()
     }
-    console.log(ung.generateUsername('wOrld!', hackertype))    // $unburn3dP4s!9r4phy-4
+    console.log(ung.generateUsername('wOrld!', hackertype))     // SUNBURNEDPASIGRAPHY_4
+
+    //global formatter
+    ung.formatter = (fn, ln, n) => {
+      return fn
+    }
+    console.log(ung.generateUsername('wOrld!'))                 // sunburned
+    // override
+    console.log(ung.generateUsername('wOrld!', uppercase))      // SUNBURNED
+
+
 ```
 
 ### Global Installation
@@ -48,11 +55,11 @@
 
 
     $ ung
-    > hornedenlarger77
+      hornedenlarger77
     $ ung
-    > joltingbacklog39
+      joltingbacklog39
     $ ung hello
-    > mortalidolization749
+      mortalidolization749
     $ ung hello
-    > mortalidolization749
+      mortalidolization749
 ```

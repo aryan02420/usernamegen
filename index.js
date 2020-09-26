@@ -25,7 +25,9 @@ function clamp(number, min, max) {
   return Math.min(Math.max(min, Number(number)), max);
 }
 
-module.exports.generateUsername = function(seed, format = (fn, ln, n) => `${fn}${ln}${n}`) {
+let formatter = (fn, ln, n) => `${fn}${ln}${n}`
+
+let generateUsername = (seed, format = this.formatter) => {
   const rng = seedrandom(seed || undefined);
   const adjectiveIndex = indexFromValue(rng(), usernameParts.adjectives.length);
   const nounIndex = indexFromValue(rng(), usernameParts.nouns.length);
@@ -39,3 +41,7 @@ module.exports.generateUsername = function(seed, format = (fn, ln, n) => `${fn}$
   }
   return format(firstName, lastName, number);
 }
+
+
+module.exports.generateUsername = generateUsername;
+module.exports.formatter = formatter;
