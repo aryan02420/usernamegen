@@ -4,4 +4,4 @@ const ung = require('../')
 const args = process.argv.slice(2);
 const seed = args[0] || undefined;
 
-console.log(ung.generateUsername(seed));
+console.log(ung.generateUsername(seed).toString());

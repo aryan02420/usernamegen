@@ -1,6 +1,19 @@
 const seedrandom = require('seedrandom');
 const usernameParts = require('./words.js');
 
+
+class UserName {
+  static formatter = (fn, ln, n) => `${fn}${ln}${n}`;
+  nameParts;
+  sequence;
+  constructor(nameParts, seq) {
+    this.name = nameParts;
+    this.sequence = seq;
+  }
+  toString(format = UserName.formatter) {
+    return format(this.name.firstName, this.name.lastName, this.name.number);
+  }
+}
 // takes a number between [0, 1)
 // returns integer between [0, length - 1]
 // convenient for getting random index
@@ -25,9 +38,8 @@ function clamp(number, min, max) {
   return Math.min(Math.max(min, Number(number)), max);
 }
 
-let formatter = (fn, ln, n) => `${fn}${ln}${n}`
 
-let generateUsername = (seed, format = this.formatter) => {
+let generateUsername = (seed) => {
   const rng = seedrandom(seed || undefined);
   const adjectiveIndex = indexFromValue(rng(), usernameParts.adjectives.length);
   const nounIndex = indexFromValue(rng(), usernameParts.nouns.length);
@@ -39,9 +51,9 @@ let generateUsername = (seed, format = this.formatter) => {
     const digit = transformValue(rng(), 0, 9);
     number += digit.toString();
   }
-  return format(firstName, lastName, number);
+  return new UserName({firstName, lastName, number}, rng);
 }
 
 
 module.exports.generateUsername = generateUsername;
-module.exports.formatter = formatter;
+module.exports.UserName = UserName;
