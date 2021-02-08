@@ -1,6 +1,12 @@
 const expect = require('chai').expect
-let ung = require('../');
-
+let {UNG} = require('../');
+const seedrandom = require('seedrandom');
+const usernameParts = require('../words.json');
+console.log(UNG);
+ung = new UNG();
+ung.rng = seedrandom;
+ung.usernameParts = usernameParts;
+console.log(ung);
 
 describe('basics', () => {
   step('generateUsername returns an object', () => {
