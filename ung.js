@@ -1,4 +1,4 @@
-(function(exports) {
+// (function(exports) {
 
   // your code goes here
 
@@ -27,39 +27,27 @@
     return Math.min(Math.max(min, Number(number)), max);
   }
 
-
+  const usernameparts = require('./words.json');
+  const seedrandom = require('seedrandom');
 
   class UNG {
-    constructor({
-      rng,
-      parts,
-      formatter
-    } = {}) {
-      this.rng = rng || null;
-      this.usernameParts = parts || {
-        "nouns": {
-          "list": ["hello", "hola"],
-          "length": 2
-        },
-        "adjectives": {
-          "list": ["world", "universe"],
-          "length": 2
-        }
+    static defaults = {
+      rng: seedrandom,
+      words: usernameparts,
+      formattor: (fn, ln, n) => { return `${fn}${ln}${n}`}
+    };
+    rng = UNG.defaults.rng;
+    usernameParts = UNG.defaults.words;
+    UserName = class UserName {
+      static formatter = UNG.defaults.formattor;
+      constructor(nameParts, seq) {
+        this.fullName = nameParts;
+        this.sequence = seq;
       }
-      this.UserName = class UserName {
-        static formatter = formatter || ((fn, ln, n) => `${fn}${ln}${n}`);
-        constructor(nameParts, seq) {
-          this.fullName = nameParts;
-          this.sequence = seq;
-        }
-        toString(format = UserName.formatter) {
-          return format(this.fullName.firstName, this.fullName.lastName, this.fullName.number);
-        }
+      toString = function (format = UserName.formatter) {
+        return format(this.fullName.firstName, this.fullName.lastName, this.fullName.number);
       }
     }
-
-
-
     generateUsername = (seed) => {
       const rng = this.rng(seed || undefined);
       const adjectiveIndex = indexFromValue(rng(), this.usernameParts.adjectives.length);
@@ -92,7 +80,7 @@
   //   return 'hello world'
   // };
 
-})(typeof exports === 'undefined' ? this['ung'] = {} : exports);
+// })(typeof exports === 'undefined' ? this['UNG'] = {} : exports);
 
 
 

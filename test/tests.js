@@ -1,12 +1,12 @@
 const expect = require('chai').expect
-let {UNG} = require('../');
+var UNG = require('../');
 const seedrandom = require('seedrandom');
 const usernameParts = require('../words.json');
-console.log(UNG);
+// console.log(UNG);
 ung = new UNG();
 ung.rng = seedrandom;
 ung.usernameParts = usernameParts;
-console.log(ung);
+// console.log(ung);
 
 describe('basics', () => {
   step('generateUsername returns an object', () => {
@@ -65,5 +65,31 @@ describe('extending', () => {
       seq2() === 0.005222270723581011 &&
       seq2() === 0.33566655610801654
     ).to.be.true;
+  });
+});
+
+describe('multiple generators', () => {
+  ung2 = new UNG();
+  ung2.rng = seedrandom;
+  ung3 = new UNG();
+  ung3.rng = seedrandom;
+  ung3.usernameParts = usernameParts;
+  step('independent username parts', () => {
+    expect(ung2.generateUsername('a').toString() === 'worldhola55').to.be.true;
+  });
+  step('independent inline formatter', () => {
+    var f = (fn, ln, n) => {
+      return fn.toUpperCase();
+    }
+    expect(ung2.generateUsername('a').toString(f) === 'WORLD').to.be.true;
+  });
+  step('independent global formatter', () => {
+    ung2.UserName.formatter = (fn, ln, n) => {
+      return ln.toUpperCase();
+    }
+    expect(ung2.generateUsername('a').toString() === 'HOLA').to.be.true;
+  });
+  step('other ung is not affected', () => {
+    expect(ung3.generateUsername('a').toString() === 'inauthenticmarlberry55').to.be.true;
   });
 });

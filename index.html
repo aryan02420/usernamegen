@@ -88,32 +88,20 @@
       </p>
     </div>
   </footer>
-  <script src="/browser/ung.js">
-    // import * as seedrandom from "//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js";
-    // import * as words from "/words.json";
-    // import * as ung from "/browser/ung.js"
-
-    // ung.usernameParts = 'words';
-    // var myrng = new Math.seedrandom('hello.');
-    // console.log(myrng());                // Always 0.9282578795792454
-    // console.log(myrng());                // Always 0.3752569768646784
-    // var ung = require('usernameGen');
-    // function generate() {
-    //   console.log(ung);
-    //   document.querySelector('#username').value=ung.generateUsername().toString();
-    // }
-    // document.querySelector('#generate').addEventListener('click', (evt) => {
-    //   generate();
-    //   evt.preventDefault();
-    // });
-    // generate();
-  </script>
-  <script>
-    console.log(ung);
-    console.log(ung.generateUsername().toString());
-    console.log(ung.generateUsername().toString());
-    console.log(ung.generateUsername().toString());
-    console.log(ung.generateUsername().toString());
+  <script src="/ung.js"></script>
+  <script type="module">
+    import * as seedrandom from "//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js";
+    console.log(UNG, Math.seedrandom);
+    let ung = new UNG.UNG();
+    ung.rng = Math.seedrandom;
+    function generate() {
+      document.querySelector('#username').value=ung.generateUsername().toString();
+    }
+    document.querySelector('#generate').addEventListener('click', (evt) => {
+      generate();
+      evt.preventDefault();
+    });
+    generate();
   </script>
 </body>
 
