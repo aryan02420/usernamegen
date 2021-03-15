@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const UNG = require('../')
-const seedrandom = require('seedrandom');
-const usernameParts = require('../words.json');
+// const seedrandom = require('seedrandom');
+// const usernameParts = require('../words.json');
 
 ung = new UNG();
-ung.rng = seedrandom;
-ung.usernameParts = usernameParts;
+// ung.rng = seedrandom;
+// ung.usernameParts = usernameParts;
 
 const args = process.argv.slice(2);
 const seed = args[0] || undefined;

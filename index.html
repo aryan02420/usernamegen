@@ -55,8 +55,17 @@
         <div class="flex flex-col mb-10 lg:items-start items-center">
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Browser</h2>
-            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">&lt;script
-              src=&quot;https://github.com/aryan02420/<wbr>usernamegen/browser/ung.js&quot;&gt;&lt;/script&gt;</p>
+            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">&lt;script src=&quot;https://github.com/aryan02420/<wbr>usernamegen/index.js&quot;&gt;&lt;/script&gt;
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-10 lg:items-start items-center">
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Usage</h2>
+            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">
+            let ung = new UNG();<br/>
+            console.log(ung.generateUsername().toString())
+            </p>
           </div>
         </div>
       </div>
@@ -83,17 +92,13 @@
         <span class="ml-3 text-xl">usernameGen</span>
       </a>
       <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020 usernameGen —
-        <a href="https://github.com/aryan02420" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">aryan02420</a>,
-        <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@knyttneve</a>
+        <a href="https://github.com/aryan02420" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">aryan02420</a>
       </p>
     </div>
   </footer>
-  <script src="/ung.js"></script>
+  <script src="/index.js"></script>
   <script type="module">
-    import * as seedrandom from "//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js";
-    console.log(UNG, Math.seedrandom);
-    let ung = new UNG.UNG();
-    ung.rng = Math.seedrandom;
+    let ung = new UNG();
     function generate() {
       document.querySelector('#username').value=ung.generateUsername().toString();
     }
