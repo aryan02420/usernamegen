@@ -1,3 +1,8 @@
+![usernameGen](https://github.com/aryan02420/usernamegen/static/logo.svg)
+![Node.js Package](https://github.com/aryan02420/usernamegen/workflows/Node.js%20Package/badge.svg)
+![Node.js Package](https://img.shields.io/github/workflow/status/aryan02420/usernamegen/Node.js%20Package)
+
+
 ### Installation
 
 ```bash
@@ -33,7 +38,7 @@
     console.log(ung.generateUsername('wOrld!').toString(uppercase))             // SUNBURNEDPASIGRAPHY_4
 
     //global formatter
-    ung.formatter = (fn, ln, n) => {
+    ung.UserName.formatter = (fn, ln, n) => {
       return fn
     }
     console.log(ung.generateUsername('wOrld!'))                                 // sunburned
