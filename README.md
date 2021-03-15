@@ -1,6 +1,7 @@
-![usernameGen](https://github.com/aryan02420/usernamegen/static/logo.svg)
-![Node.js Package](https://github.com/aryan02420/usernamegen/workflows/Node.js%20Package/badge.svg)
-![Node.js Package](https://img.shields.io/github/workflow/status/aryan02420/usernamegen/Node.js%20Package)
+# <img src="/static/logo.svg" alt="usernameGen" width="24px"> usernameGen
+
+![npm](https://img.shields.io/npm/v/@aryan02420/usernamegen?label=version&logo=npm&logoColor=white)
+![tests](https://img.shields.io/github/workflow/status/aryan02420/usernamegen/tests?label=tests&logo=github)
 
 
 ### Installation
