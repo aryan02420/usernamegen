@@ -4,16 +4,16 @@ ung = new UNG();
 
 describe('basics', () => {
   step('generateUsername returns an object', () => {
-    expect(typeof ung.generateUsername() === 'object').to.be.true;
+    expect(ung.generateUsername()).to.be.an.instanceOf(Object);
   });
   step('toString returns a string', () => {
     expect(typeof ung.generateUsername().toString() === 'string').to.be.true;
   });
   step('unique usernames without seed', () => {
-    expect(ung.generateUsername().toString() !== ung.generateUsername().toString()).to.be.true;
+    expect(ung.generateUsername().toString()).to.not.equal(ung.generateUsername().toString());
   });
   step('fixed username when seed is provided', () => {
-    expect(ung.generateUsername('a').toString() === 'inauthenticmarlberry55').to.be.true;
+    expect(ung.generateUsername('a').toString()).to.equal('inauthenticmarlberry55');
   });
 });
 
@@ -22,22 +22,22 @@ describe('formatting', () => {
     return fn.toUpperCase();
   }
   step('passing inline formatter', () => {
-    expect(ung.generateUsername('a').toString(f) === 'INAUTHENTIC').to.be.true;
+    expect(ung.generateUsername('a').toString(f)).to.equal('INAUTHENTIC');
   });
   step('inline formatter does not pollute global/default formatter', () => {
-    expect(ung.generateUsername('a').toString() === 'inauthenticmarlberry55').to.be.true;
+    expect(ung.generateUsername('a').toString()).to.equal('inauthenticmarlberry55');
   });
   step('setting global/default formatter', () => {
     ung.UserName.formatter = (fn, ln, n) => {
       return ln.toUpperCase();
     }
-    expect(ung.generateUsername('a').toString() === 'MARLBERRY').to.be.true;
+    expect(ung.generateUsername('a').toString()).to.equal('MARLBERRY');
   });
   step('inline formatter overrides global formatter', () => {
     ung.UserName.formatter = (fn, ln, n) => {
       return ln.toUpperCase();
     }
-    expect(ung.generateUsername('a').toString(f) === 'INAUTHENTIC').to.be.true;
+    expect(ung.generateUsername('a').toString(f)).to.equal('INAUTHENTIC');
   });
 });
 
@@ -51,14 +51,12 @@ describe('extending', () => {
     expect(typeof seq() === 'number').to.be.true;
   });
   step('sequence returns random number at each call', () => {
-    expect(seq() !== seq()).to.be.true;
+    expect(seq()).to.not.equal(seq());
   });
   step('sequence returns a fixed random number sequence when seeded', () => {
-    expect(
-      seq2() === 0.6363726288676872 &&
-      seq2() === 0.005222270723581011 &&
-      seq2() === 0.33566655610801654
-    ).to.be.true;
+    expect(seq2()).to.equal(0.6363726288676872);
+    expect(seq2()).to.equal(0.005222270723581011);
+    expect(seq2()).to.equal(0.33566655610801654);
   });
 });
 
@@ -76,21 +74,21 @@ describe('multiple generators', () => {
       }
   ung3 = new UNG();
   step('independent username parts', () => {
-    expect(ung2.generateUsername('a').toString() === 'hellouniverse55').to.be.true;
+    expect(ung2.generateUsername('a').toString()).to.equal('hellouniverse55');
   });
   step('independent inline formatter', () => {
     var f = (fn, ln, n) => {
       return fn.toUpperCase();
     }
-    expect(ung2.generateUsername('a').toString(f) === 'HELLO').to.be.true;
+    expect(ung2.generateUsername('a').toString(f)).to.equal('HELLO');
   });
   step('independent global formatter', () => {
     ung2.UserName.formatter = (fn, ln, n) => {
       return ln.toUpperCase();
     }
-    expect(ung2.generateUsername('a').toString() === 'UNIVERSE').to.be.true;
+    expect(ung2.generateUsername('a').toString()).to.equal('UNIVERSE');
   });
   step('other ung is not affected', () => {
-    expect(ung3.generateUsername('a').toString() === 'inauthenticmarlberry55').to.be.true;
+    expect(ung3.generateUsername('a').toString()).to.equal('inauthenticmarlberry55');
   });
 });
