@@ -14,7 +14,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "npm run build && mocha --require mocha-steps",
-    "build": "browserify --standalone UNG ./src/ung.js -o ./lib/index.js"
+    "build": "tsc ./src/ung.ts --outDir ./lib/ --module umd --moduleResolution node",
+    "buildold": "browserify --standalone UNG ./src/ung.js -o ./lib/index.js"
   },
   "bin": {
     "ung": "bin/ung.js"
