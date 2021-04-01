@@ -1,5 +1,6 @@
 const expect = require('chai').expect
 var UNG = require('../');
+console.log(UNG);
 ung = new UNG();
 
 describe('basics', () => {
@@ -24,17 +25,17 @@ describe('formatting', () => {
   step('passing inline formatter', () => {
     expect(ung.generateUsername('a').toString(f)).to.equal('INAUTHENTIC');
   });
-  step('inline formatter does not pollute global/default formatter', () => {
+  step('inline formatter does not pollute global/default formattor', () => {
     expect(ung.generateUsername('a').toString()).to.equal('inauthenticmarlberry55');
   });
-  step('setting global/default formatter', () => {
-    ung.UserName.formatter = (fn, ln, n) => {
-      return ln.toUpperCase();
+  step('setting global/default formattor', () => {
+    ung.formattor = (...args) => {
+      return args[1].toUpperCase();
     }
     expect(ung.generateUsername('a').toString()).to.equal('MARLBERRY');
   });
-  step('inline formatter overrides global formatter', () => {
-    ung.UserName.formatter = (fn, ln, n) => {
+  step('inline formattor overrides global formatter', () => {
+    ung.formattor = (fn, ln, n) => {
       return ln.toUpperCase();
     }
     expect(ung.generateUsername('a').toString(f)).to.equal('INAUTHENTIC');
@@ -62,7 +63,7 @@ describe('extending', () => {
 
 describe('multiple generators', () => {
   ung2 = new UNG();
-  ung2.usernameParts = {
+  ung2.words = {
         "nouns": {
           "list": ["world", "universe"],
           "length": 2
@@ -76,14 +77,14 @@ describe('multiple generators', () => {
   step('independent username parts', () => {
     expect(ung2.generateUsername('a').toString()).to.equal('hellouniverse55');
   });
-  step('independent inline formatter', () => {
+  step('independent inline formattor', () => {
     var f = (fn, ln, n) => {
       return fn.toUpperCase();
     }
     expect(ung2.generateUsername('a').toString(f)).to.equal('HELLO');
   });
-  step('independent global formatter', () => {
-    ung2.UserName.formatter = (fn, ln, n) => {
+  step('independent global formattor', () => {
+    ung2.formattor = (fn, ln, n) => {
       return ln.toUpperCase();
     }
     expect(ung2.generateUsername('a').toString()).to.equal('UNIVERSE');

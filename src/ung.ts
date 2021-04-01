@@ -48,8 +48,4 @@ class UNG {
     };
 }
 
-
-let ung = new UNG()
-console.log(ung.generateUsername().toString());
-
 export default UNG;

@@ -13,9 +13,10 @@
   "license": "MIT",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "npm run build && mocha --require mocha-steps",
-    "build": "tsc ./src/ung.ts --outDir ./lib/ --module umd --moduleResolution node",
-    "buildold": "browserify --standalone UNG ./src/ung.js -o ./lib/index.js"
+    "test": "mocha --require mocha-steps",
+    "build": "tsc ./src/index.ts --outDir ./lib/ --module umd --moduleResolution node",
+    "build:browser": "browserify --standalone UNG ./lib/index.js -o ./lib/browser.js",
+    "all": "npm run build && npm run build:browser && npm run test"
   },
   "bin": {
     "ung": "bin/ung.js"
