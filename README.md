@@ -1,53 +1,87 @@
-# <img src="/static/logo.svg" alt="usernameGen" width="24px"> usernameGen
+# <img src="/static/logo.svg" alt="usernameGen" height="1em"> usernameGen
 
-![npm](https://img.shields.io/npm/v/@aryan02420/usernamegen?label=version&logo=npm&logoColor=white)
-![tests](https://img.shields.io/github/workflow/status/aryan02420/usernamegen/tests?label=tests&logo=github)
-
+[![npm][npm-shield]][npm-url]
+[![tests][tests-shield]][tests-url]
 
 ### Installation
 
 ```bash
-    > npm i @aryan02420/usernamegen
+    npm i @aryan02420/usernamegen
 ```
 
 ### Usage
 
+##### Random everytime
+
 ```js
     const ung = require('@aryan02420/usernamegen')
 
-    // random usernames
-    console.log(ung.generateUsername().toString())                              // slightingvoltaic4
-    console.log(ung.generateUsername().toString())                              // amazedspirogyra43566
-    console.log(ung.generateUsername().toString())                              // casuisticaljam203
-    console.log(ung.generateUsername(undefined).toString())                     // sevenfoldfast6
-    console.log(ung.generateUsername(undefined).toString())                     // sunnyanoxia68
-    console.log(ung.generateUsername(undefined).toString())                     // ribbedgraphite9184
+    console.log(ung.generateUsername().toString())                   // slightingvoltaic4
+    console.log(ung.generateUsername().toString())                   // amazedspirogyra43566
 ```
 
-```js
-    // from seed
-    console.log(ung.generateUsername('hello').toString())                       // mortalidolization749
-    console.log(ung.generateUsername('hello').toString())                       // mortalidolization749
-    console.log(ung.generateUsername('wOrld!').toString())                      // sunburnedpasigraphy4
-```
+##### From Seed
 
 ```js
-    // formatting
+    console.log(ung.generateUsername('hello').toString())            // mortalidolization749
+    console.log(ung.generateUsername('hello').toString())            // mortalidolization749
+```
+
+##### Formatting
+
+```js
+    // inline
     uppercase = (fn, ln, n) => {
       return `${fn}${ln}_${n}`.toUpperCase()
     }
-    console.log(ung.generateUsername('wOrld!').toString(uppercase))             // SUNBURNEDPASIGRAPHY_4
+    console.log(ung.generateUsername('wOrld!').toString(uppercase))  // SUNBURNEDPASIGRAPHY_4
 
-    //global formatter
-    ung.UserName.formatter = (fn, ln, n) => {
+    // global
+    ung.formattor = (fn, ln, n) => {
       return fn
     }
-    console.log(ung.generateUsername('wOrld!'))                                 // sunburned
+    console.log(ung.generateUsername('wOrld!'))                      // sunburned
 
     // override
-    console.log(ung.generateUsername('wOrld!', uppercase))                      // SUNBURNEDPASIGRAPHY_4
+    console.log(ung.generateUsername('wOrld!').toString(uppercase))  // SUNBURNEDPASIGRAPHY_4
+```
 
+##### Custom Words
 
+```js
+    let ung = new UNG()
+    ung.words = {
+        "nouns": {
+            "list": ["world", "universe"],
+            "length": 2
+        },
+        "adjectives": {
+            "list": ["hello", "hey"],
+            "length": 2
+        }
+    }
+    console.log(ung.generateUsername('a').toString())                // hellouniverse55
+```
+
+##### Extending
+
+```js
+    let ung = new UNG();
+    let un = ung.generateUsername('a')
+    console.log(un.sequence())                                       // 0.6363726288676872
+    console.log(un.sequence())                                       // 0.005222270723581011
+    console.log(un.sequence())                                       // 0.33566655610801654
+    console.log(un.toString())                                       // hellouniverse55
+```
+
+##### Browser
+
+```html
+    <script src="/lib/browser.js"></script>
+    <script>
+        let ung = new UNG();
+        console.log(ung.generateUsername().toString());
+    </script>
 ```
 
 ### Global Installation
@@ -66,3 +100,10 @@
     > ung hello
     mortalidolization749
 ```
+
+
+
+[tests-shield]: https://img.shields.io/github/workflow/status/aryan02420/usernamegen/tests?label=tests&logo=github
+[tests-url]: https://github.com/aryan02420/usernamegen/actions/workflows/test-runner.yml
+[npm-shield]: https://img.shields.io/npm/v/@aryan02420/usernamegen?label=version&logo=npm&logoColor=white
+[npm-url]: https://www.npmjs.com/package/@aryan02420/usernamegen
