@@ -21,4 +21,4 @@ let words:IWords = {
     adjectives
 };
 
-export default words;
+export {words, IWords, IWordlist};

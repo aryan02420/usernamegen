@@ -1,7 +1,6 @@
-const expect = require('chai').expect
-var UNG = require('../');
-console.log(UNG);
-ung = new UNG();
+const expect = require('chai').expect;
+const UNG = require('../');
+let ung = new UNG();
 
 describe('basics', () => {
   step('generateUsername returns an object', () => {
@@ -62,7 +61,7 @@ describe('extending', () => {
 });
 
 describe('multiple generators', () => {
-  ung2 = new UNG();
+  let ung2 = new UNG();
   ung2.words = {
         "nouns": {
           "list": ["world", "universe"],
@@ -73,7 +72,7 @@ describe('multiple generators', () => {
           "length": 2
         }
       }
-  ung3 = new UNG();
+  let ung3 = new UNG();
   step('independent username parts', () => {
     expect(ung2.generateUsername('a').toString()).to.equal('hellouniverse55');
   });

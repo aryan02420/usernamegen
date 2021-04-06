@@ -1,4 +1,4 @@
-import usernameData from "./words";
+import {words as usernameData, IWords } from "./words";
 import * as seedrandom from "seedrandom";
 
 
@@ -28,7 +28,7 @@ class Username {
 class UNG {
     constructor(){};
     rng: any = seedrandom;
-    words = usernameData;
+    words:IWords = usernameData;
     formattor = (...args:string[]): string => {
         return args.join('');
     };
@@ -43,9 +43,9 @@ class UNG {
         for (let i = 0; i < numDigits; i++) {
             const digit = Math.floor(map(rng(),0,1,0,10));
             num += digit.toString();
-        }        
+        }
         return new Username(this, [firstName, lastName, num], rng);
     };
 }
 
-export default UNG;
+export {UNG, Username};
