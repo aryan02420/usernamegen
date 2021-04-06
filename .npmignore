@@ -1,8 +1,0 @@
-**/node_modules
-browser/
-.github/
-src/
-static/
-test/
-CNAME
-index.html

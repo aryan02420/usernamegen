@@ -3,21 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <title>usernameGen | Geneterate random usernames</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>usernameGen | Generate random usernames</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="static/logo.svg">
 </head>
 
 <body>
-  <header class="text-gray-50 body-font bg-red-400">
+  <header class="text-gray-50 body-font bg-red-500">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <a href="#" class="flex title-font font-medium items-center text-gray-50 mb-4 md:mb-0">
+      <a href="#" class="flex title-font font-medium items-center text-gray-50 mb-4 md:mb-0 focus-visible:ring-2 focus-visible:ring-gray-50 ring-offset-2">
         <span class="text-xl">usernameGen</span>
       </a>
       <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-        <a href="https://github.com/aryan02420/usernamegen" class="mr-5 hover:text-gray-300">Github</a>
-        <a href="https://www.npmjs.com/package/@aryan02420/usernamegen" class="mr-5 hover:text-gray-300">NPM</a>
-        <a href="https://runkit.com/aryan02420/runkit-npm-aryan02420-usernamegen" class="mr-5 hover:text-gray-300">RunKit</a>
+        <a href="https://github.com/aryan02420/usernamegen" rel="noopener noreferrer" class="mr-5 hover:text-red-300 focus-visible:ring-2 focus-visible:ring-gray-50 ring-offset-2">Github</a>
+        <a href="https://www.npmjs.com/package/@aryan02420/usernamegen" rel="noopener noreferrer" class="mr-5 hover:text-red-300 focus-visible:ring-2 focus-visible:ring-gray-50 ring-offset-2">NPM</a>
+        <a href="https://runkit.com/aryan02420/runkit-npm-aryan02420-usernamegen" rel="noopener noreferrer" class="mr-5 hover:text-red-300 focus-visible:ring-2 focus-visible:ring-gray-50 ring-offset-2">RunKit</a>
       </nav>
     </div>
   </header>
@@ -28,41 +29,35 @@
         <p class="mb-8 leading-relaxed">for discord bots, social networks, etc.</p>
         <div class="flex w-full md:justify-start justify-center items-end">
           <div class="relative mr-4 md:w-full lg:w-full xl:w-1/2 w-2/4">
-            <!-- <label for="hero-field" class="leading-7 text-sm text-gray-600">Placeholder</label> -->
             <input type="text" id="username" name="hero-field" class="w-full bg-gray-100 rounded border border-gray-300 focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
-          <button id="generate" class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Generate</button>
+          <button id="generate" class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg focus:ring-2 focus:ring-red-600 ring-offset-2">Generate</button>
         </div>
       </div>
       <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
         <div class="flex flex-col mb-10 lg:items-start items-center">
-          <!-- <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-5">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-          </div> -->
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Nodejs</h2>
-            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">npm i @aryan02420/usernamegen</p>
+            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base text-left outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">npm i @aryan02420/usernamegen</p>
           </div>
         </div>
         <div class="flex flex-col mb-10 lg:items-start items-center">
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Terminal</h2>
-            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">npm i -g @aryan02420/usernamegen</p>
+            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base text-left outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">npm i -g @aryan02420/usernamegen</p>
           </div>
         </div>
         <div class="flex flex-col mb-10 lg:items-start items-center">
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Browser</h2>
-            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">&lt;script src=&quot;https://github.com/aryan02420/<wbr>usernamegen/index.js&quot;&gt;&lt;/script&gt;
+            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base text-left outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">&lt;script src=&quot;https://github.com/aryan02420/<wbr>usernamegen/index.js&quot;&gt;&lt;/script&gt;
             </p>
           </div>
         </div>
         <div class="flex flex-col mb-10 lg:items-start items-center">
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Usage</h2>
-            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">
+            <p class="font-mono w-full bg-gray-100 rounded border border-gray-300 hover:border-red-500 text-base text-left outline-none text-gray-700 py-3 px-5 leading-8 transition-colors duration-200 ease-in-out">
             let ung = new UNG();<br/>
             console.log(ung.generateUsername().toString())
             </p>
@@ -96,7 +91,7 @@
       </p>
     </div>
   </footer>
-  <script src="/lib/browser.js"></script>
+  <script src="/lib/browser.min.js"></script>
   <script type="module">
     let ung = new UNG();
     function generate() {

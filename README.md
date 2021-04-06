@@ -1,4 +1,4 @@
-# <img src="/static/logo.svg" alt="usernameGen" height="1em"> usernameGen
+# <img src="/static/logo.svg" alt="usernameGen" height="24em"> usernameGen
 
 [![npm][npm-shield]][npm-url]
 [![tests][tests-shield]][tests-url]
@@ -14,7 +14,8 @@
 ##### Random everytime
 
 ```js
-    const ung = require('@aryan02420/usernamegen')
+    const {UNG} = require('@aryan02420/usernamegen')
+    let ung = new UNG()
 
     console.log(ung.generateUsername().toString())                   // slightingvoltaic4
     console.log(ung.generateUsername().toString())                   // amazedspirogyra43566
@@ -66,7 +67,6 @@
 ##### Extending
 
 ```js
-    let ung = new UNG();
     let un = ung.generateUsername('a')
     console.log(un.sequence())                                       // 0.6363726288676872
     console.log(un.sequence())                                       // 0.005222270723581011
